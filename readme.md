@@ -33,7 +33,8 @@ Setting up MongoDB was a little frustrating because of how the site had changed 
 There are tests that I am still not passing but that are returning the info as asked. I did have an issue with a backtick and a quotation mark on top of each other that I resolved. Still, I failed tests in `PATCH` that returned what was requested in Thunder Client. For example:
 
 > /states/KS/funfact endpoint PATCH request will return a message saying 'No Fun Fact found at that index for Kansas' if no fun fact exists to update at the provided index.
-> That test fails but I still get the following:
+
+That test fails but I still get the following:
 
 ```
 {"message": "No Fun Fact found at that index for Kansas"}
