@@ -1,0 +1,27 @@
+20240430	22:30:46	bec4e7ef-d37e-4870-8552-62967abe99ce	Error: Cannot set headers after they are sent to the client
+20240430	22:31:09	0865dc79-4bcd-4fcb-a22f-0041ad6205bb	Error: Cannot set headers after they are sent to the client
+20240430	22:39:39	9d8bc41c-1266-49f6-8108-4f94c14c4b67	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:40:42	49a06a91-c4d2-4e23-a0a8-b71b0521c07f	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:40:43	50aadcc9-e533-4984-b4dc-c29f5e81238e	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:40:48	13f2fc8c-5825-46cd-84a2-c913ecb16138	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:41:11	758dfac0-fd5e-4009-907c-afca584bf579	TypeError: req.params.toUpperCase is not a function
+20240430	22:41:19	2c211a9c-470a-4c60-9d30-5ada656db864	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:41:28	36160ed3-05f0-4636-b2da-5dd219c8a3b3	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:41:40	0aa5781e-0dae-4fee-8a74-1e3d3b2e58ea	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:41:58	def360eb-2541-4199-9095-3cc48a29986a	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:43:53	c116cf14-5f8d-4d94-b3e1-096efcd2ba2f	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:44:13	44fd9119-4cbc-4d81-94cf-861489983878	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:44:28	a5764dec-a067-4120-9df6-8eaf704d49c7	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:44:30	ef16bb70-39cf-4161-b259-3b35c0bbe969	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:44:48	0b49cc4e-d15c-4f87-8a2c-6f3051434c7c	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:44:51	2eec149d-ecd0-4f32-b8ff-ca37c42e11b0	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:45:18	fde88611-55e8-4d14-8970-6762e2b25b08	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:45:21	3cd2fcf9-bdc8-4eb5-a969-a8a714b20a91	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:45:29	c79ed81c-28d9-46f6-a542-61ca9bc6a9ad	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	22:45:45	2a1f9f74-68d5-4d2b-bccb-b73cef248dc0	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	23:34:29	dd018158-26cf-4c5f-aaa6-d784bdbde0fa	TypeError: req.params.toUpperCase is not a function
+20240430	23:35:00	3ba4b62d-444d-4fc4-b37c-d8870863c343	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	23:35:13	b0e1d308-169c-4ad2-9759-1caaefe92601	TypeError: Cannot destructure property 'stateCode' of 'req.params.stateCode' as it is undefined.
+20240430	23:35:24	03a4c226-c9e4-40b1-b95b-4e10892b7a01	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	23:37:10	eb46e25b-4bab-4363-a88d-fb212bbab24a	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240430	23:39:52	5491eb95-b113-42d9-a24b-000760cdc92e	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
