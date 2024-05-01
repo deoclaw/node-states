@@ -41,6 +41,7 @@ const getContigStates = async (req, res) => {
 	const contigStates = data.states
 		.filter((state) => state.code !== "AK")
 		.filter((state) => state.code !== "HI");
+	console.log(contigStates.length);
 	res.json(contigStates);
 };
 
@@ -61,6 +62,7 @@ const getNonContigStates = async (req, res) => {
 	const nonContig = data.states.filter(
 		(state) => state.code === "AK" || state.code === "HI"
 	);
+	console.log(nonContig.length);
 	res.json(nonContig);
 };
 
@@ -83,7 +85,7 @@ const getState = async (req, res) => {
 		});
 	});
 	const singleState = data.states.filter((state) => state.code === req.code);
-	res.json(singleState);
+	res.json(singleState[0]);
 };
 
 const getStateCapital = async (req, res) => {
@@ -124,7 +126,7 @@ const getStatePopulation = async (req, res) => {
 	console.log(singleState);
 	res.json({
 		state: singleState[0].state,
-		population: singleState[0].population,
+		population: singleState[0].population.toLocaleString(),
 	});
 };
 
@@ -161,10 +163,14 @@ const getStateFunfact = async (req, res) => {
 		});
 	});
 	const singleState = data.states.filter((state) => state.code === req.code);
-
-	index = Math.floor(Math.random() * singleState[0].funfacts.length);
-	console.log(singleState[0].funfacts[index]);
-	res.json(singleState[0].funfacts[index]);
+	console.log(singleState[0].funfacts);
+	if (typeof singleState[0].funfacts !== "undefined") {
+		index = Math.floor(Math.random() * singleState[0].funfacts.length);
+		console.log(singleState[0].funfacts[index]);
+		res.json({ funfact: singleState[0].funfacts[index] });
+	} else if (typeof singleState[0].funfacts === "undefined") {
+		res.json({ message: `No Fun Facts found for ${singleState[0].state}` });
+	}
 };
 
 //body should contain funfacts property with array one or more
@@ -173,7 +179,10 @@ const getStateFunfact = async (req, res) => {
 
 const createStateFacts = async (req, res) => {
 	if (!req?.body?.funfacts) {
-		return res.status(400).json({ message: "Funfact required" });
+		return res.json({ message: "State fun facts value required" });
+	}
+	if (!Array.isArray(req.body.funfacts)) {
+		return res.json({ message: "State fun facts value must be an array" });
 	}
 	console.log(req.params.stateCode);
 	const state = await State.findOne({
@@ -182,22 +191,36 @@ const createStateFacts = async (req, res) => {
 	console.log(state);
 
 	if (!state) {
-		return res.status(404);
+		try {
+			//create state in db and add
+			const result = await State.create({
+				stateCode: req.params.stateCode,
+				funfacts: req.body.funfacts,
+			});
+			res.status(201).json(result);
+		} catch (err) {
+			console.error(err);
+		}
+	} else {
+		state.funfacts.push(...req.body.funfacts);
+
+		const result = await state.save(); //saves the changes made to the employee document
+
+		res.json(result);
 	}
-
-	state.funfacts.push(...req.body.funfacts);
-
-	const result = await state.save(); //saves the changes made to the employee document
-
-	res.json(result);
 };
 
 const patchStateFacts = async (req, res) => {
-	if (!req?.body?.funfacts) {
-		return res.status(400).json({ message: "Funfact required" });
+	if (!req?.body?.funfact) {
+		return res.json({ message: "State fun fact value required" });
+	}
+	if (typeof req.body.funfact != "string") {
+		return res.json({ message: "State fun fact value required" });
 	}
 	if (!req?.body?.index) {
-		return res.status(400).json({ message: "Index required (greater than 0" });
+		return res
+			.status(400)
+			.json({ message: "State fun fact index value required" });
 	}
 	const index = req.body.index - 1;
 	console.log(req.params.stateCode);
@@ -206,11 +229,22 @@ const patchStateFacts = async (req, res) => {
 	}).exec();
 	console.log(state);
 
+	const singleState = data.states.filter((state) => state.code === req.code);
+	console.log(singleState[0]);
+
 	if (!state) {
-		return res.status(404);
+		return res.json({
+			message: `No Fun Facts found for ${singleState[0].state}`,
+		});
 	}
 
-	state.funfacts[index] = req.body.funfacts;
+	if ((state && index >= state.funfacts.length) || index < 0) {
+		return res.json({
+			message: `No Fun Fact found at that index for ${singleState[0].state}`,
+		});
+	}
+
+	state.funfacts[index] = req.body.funfact;
 
 	const result = await state.save(); //saves the changes made to the employee document
 
@@ -219,7 +253,9 @@ const patchStateFacts = async (req, res) => {
 
 const deleteStateFacts = async (req, res) => {
 	if (!req?.body?.index) {
-		return res.status(400).json({ message: "Index required (greater than 0" });
+		return res
+			.status(400)
+			.json({ message: "State fun fact index value required" });
 	}
 	const index = req.body.index - 1;
 	//console.log(req.params.stateCode);
@@ -228,8 +264,19 @@ const deleteStateFacts = async (req, res) => {
 	}).exec();
 	//console.log(state);
 
+	const singleState = data.states.filter((state) => state.code === req.code);
+	console.log(singleState[0]);
+
 	if (!state) {
-		return res.status(404);
+		return res.json({
+			message: `No Fun Facts found for ${singleState[0].state}`,
+		});
+	}
+
+	if ((state && index >= state.funfacts.length) || index < 0) {
+		return res.json({
+			message: `No Fun Fact found at that index for ${singleState[0].state}`,
+		});
 	}
 
 	const reducedFacts = state.funfacts.splice(index, 1);

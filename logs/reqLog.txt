@@ -221,3 +221,15 @@
 20240501	01:34:41	f83d0d3b-a43e-4eda-9453-50db8070cdac	GET	undefined	/states/la/
 20240501	01:35:00	63c96fd9-242b-4b84-a6b0-69225c9dfdd9	DELETE	undefined	/states/la/funfact
 20240501	01:35:02	d9abba0a-885f-40fc-8d9b-5a509e83bde4	GET	undefined	/states/la/
+20240501	11:09:26	2b8ac5b9-a02b-4e2a-8d08-5199bb4ac23c	GET	undefined	/
+20240501	11:09:26	c10b545b-68b2-4804-8076-806211674585	GET	undefined	/css/style.css
+20240501	11:09:32	9a45525d-35a1-4246-a8ed-6ef9ea29e21b	GET	undefined	/states/OR/funfact
+20240501	11:09:44	fd095f65-9c1c-40e5-baba-bb9656ed3805	POST	undefined	/states/OR/funfact
+20240501	11:13:15	814edb44-30ef-4265-ad29-2c5b384f07d6	POST	undefined	/states/OR/funfact
+20240501	11:20:43	b8bce87b-56e2-44de-abe4-007f92df9cdb	POST	undefined	/states/TX/funfact
+20240501	11:21:03	05b03280-0f36-4e87-9918-dc01e671e676	POST	undefined	/states/TX/funfact
+20240501	11:21:03	f68b488d-f08b-405d-9589-5ae61835f2b8	POST	undefined	/states/TX/funfact
+20240501	11:27:46	b18e2e0c-7556-4b4f-a795-3c34de93d923	POST	undefined	/states/OR/funfact
+20240501	11:32:51	e201db65-cdb8-4716-9c72-a1b44405569c	POST	undefined	/states/OR/funfact
+20240501	11:35:11	ce8d4651-ea9a-43ac-9bb8-ae2ca43dfc0e	POST	undefined	/states/OR/funfact
+20240501	11:39:17	23e08f3d-5f38-4d77-a882-96fae24af97f	POST	undefined	/states/OR/funfact
