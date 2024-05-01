@@ -25,3 +25,5 @@
 20240430	23:35:24	03a4c226-c9e4-40b1-b95b-4e10892b7a01	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
 20240430	23:37:10	eb46e25b-4bab-4363-a88d-fb212bbab24a	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
 20240430	23:39:52	5491eb95-b113-42d9-a24b-000760cdc92e	TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+20240501	01:00:18	eaab501f-deb4-4193-b924-159b240cb023	SyntaxError: Expected double-quoted property name in JSON at position 26
+20240501	01:08:25	f170a150-147b-4e3f-81d8-5b136750c25f	SyntaxError: Expected property name or '}' in JSON at position 1

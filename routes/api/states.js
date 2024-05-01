@@ -19,7 +19,7 @@ router.use("/:stateCode", verifyStates); // I NEEDED THIS FUCKING SHIT?~
 //get single state
 router.route("/:stateCode").get(stateController.getState, verifyStates);
 //get single state with fun fact
-router.route("/:stateCode/funfact").get();
+router.route("/:stateCode/funfact").get(stateController.getStateFunfact);
 //get single state capital
 router.route("/:stateCode/capital").get(stateController.getStateCapital);
 //get single state nickname
@@ -31,7 +31,11 @@ router.route("/:stateCode/admission").get(stateController.getStateAdmit);
 //-------------------------END SIMPLE GETS---------------------------------
 
 //post, patch, delete - states/:stateCode/funfact
-
+router
+	.route("/:stateCode/funfact")
+	.post(stateController.createStateFacts)
+	.patch(stateController.patchStateFacts)
+	.delete(stateController.deleteStateFacts);
 //404
 
 module.exports = router;
