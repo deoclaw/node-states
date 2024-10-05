@@ -2,7 +2,7 @@
 
 A RESTful API created in Node with Express and MongoDB for a final project using US state data.
 
-Deployed [on Render](https://node-states.onrender.com)
+
 
 ## Challenges
 
